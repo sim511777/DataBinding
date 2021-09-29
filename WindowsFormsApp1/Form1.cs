@@ -41,11 +41,15 @@ namespace WindowsFormsApp1 {
         // set 속성에서 이벤트 호출
         public string Text {
             get { return text; }
-            set { text = value; NotifyPropertyChanged(); }
+            //set { text = value; NotifyPropertyChanged(); }
+            set {
+                text = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Text"));
+            }
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 }
