@@ -19,6 +19,9 @@ namespace WindowsFormsApp1 {
             textBox4.DataBindings.Add("Text", source, "Text", false, DataSourceUpdateMode.OnPropertyChanged);
             //source.PropertyChanged += (s, e) => { textBox4.Text = source.Text; };
             //textBox4.TextChanged += (s, e) => { source.Text = textBox4.Text; };
+            
+            //numericUpDown2.DataBindings.Add("Value", trackBar2, "Value", false, DataSourceUpdateMode.OnPropertyChanged);
+            trackBar2.DataBindings.Add("Value", numericUpDown2, "Value", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         Source source = new Source();
@@ -31,6 +34,26 @@ namespace WindowsFormsApp1 {
         // 소스 확인
         private void button1_Click(object sender, EventArgs e) {
             this.Text = source.Text;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e) {
+            textBox6.Text = textBox5.Text;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e) {
+            textBox5.Text = textBox6.Text;
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            textBox5.Text = textBox5.Text + "a";
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e) {
+            numericUpDown1.Value = trackBar1.Value;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e) {
+            trackBar1.Value = (int)numericUpDown1.Value;
         }
     }
 
